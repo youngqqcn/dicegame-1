@@ -1,16 +1,10 @@
-# HTDF
+# dicegame
 
-![](dice.png)
+🎲 Porting http://dice2.win to HTDF2.0
 
+- dicegame backend: https://github.com/orientwalt/dicegame-backend
+- dicegame frontend: https://github.com/orientwalt/dicegame-frontend
 
-geth的console发送交易
+# project status
 
-```
-eth.sendTransaction({'from':eth.accounts[0], 'to': "0x954d1a58c7abd4ac8ebe05f59191Cf718eb0cB89", 'value': web3.toWei(100, "ether")})
-```
-
-
-# 如何使用？
-
-请看Makefile
-
+https://github.com/orientwalt/dicegame/issues/1
