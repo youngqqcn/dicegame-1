@@ -46,9 +46,8 @@ contract Dice2Win {
 
     // There is minimum and maximum bets.
     // 最小最大金额
-    // uint constant MIN_BET = 0.01 ether;
-    uint256 constant MIN_BET = 1 * 10**8; // 最小下注金额, 加大100倍
-    uint256 constant MAX_AMOUNT = 1000000 * 10**8 + 1; // 最大1000000HTDF
+    uint256 constant MIN_BET = 1 * 10**8; // 最小下注金额:  1 HTDF
+    uint256 constant MAX_AMOUNT = 10000 * 10**8 + 1; // 最大下注金额: 10000 HTDF
 
     // Modulo is a number of equiprobable outcomes in a game:
     //  - 2 for coin flip
@@ -59,7 +58,7 @@ contract Dice2Win {
     //  etc.
     // It's called so because 256-bit entropy is treated like a huge integer and
     // the remainder of its division by modulo is considered bet outcome.
-    uint256 constant MAX_MODULO = 100;
+    uint256 constant MAX_MODULO = 36; // 其他游戏不开通
 
     // For modulos below this threshold rolls are checked against a bit mask,
     // thus allowing betting on any combination of outcomes. For example, given
@@ -145,7 +144,7 @@ contract Dice2Win {
         // secretSigner = msg.sender;
         secretSigner = payable(0x954d1a58c7abd4ac8ebe05f59191Cf718eb0cB89); // 测试用
         croupier = msg.sender;
-        maxProfit = MAX_AMOUNT - 1; // 默认是 1000000 HTDF, 可调节
+        maxProfit = MAX_AMOUNT * 35; // 根据最大赔率计算, 可调节
     }
 
     // Standard modifier on methods invokable only by contract owner.
@@ -170,6 +169,7 @@ contract Dice2Win {
         nextOwner = _nextOwner;
     }
 
+    // 正式转移所有到nextOwner
     function acceptNextOwner() external {
         require(
             msg.sender == nextOwner,
