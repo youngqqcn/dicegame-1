@@ -47,7 +47,7 @@ contract Dice2Win {
     // There is minimum and maximum bets.
     // 最小最大金额
     uint256 constant MIN_BET = 1 * 10**8; // 最小下注金额:  1 HTDF
-    uint256 constant MAX_AMOUNT = 10000 * 10**8 + 1; // 最大下注金额: 10000 HTDF
+    uint256 constant MAX_AMOUNT = 1000 * 10**8 + 1; // 最大下注金额: 1000 HTDF
 
     // Modulo is a number of equiprobable outcomes in a game:
     //  - 2 for coin flip
