@@ -144,7 +144,7 @@ contract Dice2Win {
         // secretSigner = msg.sender;
         secretSigner = payable(0x954d1a58c7abd4ac8ebe05f59191Cf718eb0cB89); // 测试用
         croupier = msg.sender;
-        maxProfit = 1000 * 36; // 默认最大获利金额: 1000
+        maxProfit = 1000 * 36; // 默认最大获利金额: 1000*36
     }
 
     // Standard modifier on methods invokable only by contract owner.
