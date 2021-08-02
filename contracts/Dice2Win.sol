@@ -47,7 +47,7 @@ contract Dice2Win {
     // There is minimum and maximum bets.
     // 最小最大金额
     uint256 constant MIN_BET = 1 * 10**8; // 最小下注金额:  1 HTDF
-    uint256 constant MAX_AMOUNT = 1000 * 10**8 + 1; // 最大下注金额: 1000 HTDF
+    uint256 constant MAX_AMOUNT = 1000000 * 10**8 + 1; // 最大下注金额: 1000000 HTDF
 
     // Modulo is a number of equiprobable outcomes in a game:
     //  - 2 for coin flip
@@ -144,7 +144,7 @@ contract Dice2Win {
         // secretSigner = msg.sender;
         secretSigner = payable(0x954d1a58c7abd4ac8ebe05f59191Cf718eb0cB89); // 测试用
         croupier = msg.sender;
-        maxProfit = MAX_AMOUNT * 36; // 可调节
+        maxProfit = 1000 * 36; // 默认最大获利金额: 1000
     }
 
     // Standard modifier on methods invokable only by contract owner.
