@@ -143,7 +143,7 @@ contract Dice2Win {
         owner = msg.sender;
         secretSigner = payable(0xda693C5307CD5aBCb1CC395d6a7Eab3d5612989F); // mainnet
         croupier = secretSigner;
-        maxProfit = 1000 * 36; // 默认最大获利金额: 1000*36
+        maxProfit = 1000 * 36 * (10**8); // 默认最大获利金额: 1000*36 HTDF
     }
 
     // Standard modifier on methods invokable only by contract owner.
