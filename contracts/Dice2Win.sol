@@ -142,7 +142,7 @@ contract Dice2Win {
         // owner 当合约消耗时, owner接收合约中所有的HTDF
         owner = msg.sender;
         secretSigner = payable(0xda693C5307CD5aBCb1CC395d6a7Eab3d5612989F); // mainnet
-        croupier = secretSigner;
+        croupier = payable(0xffBe74a0193ed1C51E7952713B6E47827c91F4b1);
         maxProfit = 1000 * 36 * (10**8); // 默认最大获利金额: 1000*36 HTDF
     }
 
