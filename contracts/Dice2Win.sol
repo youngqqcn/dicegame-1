@@ -141,9 +141,8 @@ contract Dice2Win {
     constructor() payable {
         // owner 当合约消耗时, owner接收合约中所有的HTDF
         owner = msg.sender;
-        // secretSigner = msg.sender;
-        secretSigner = payable(0x954d1a58c7abd4ac8ebe05f59191Cf718eb0cB89); // 测试用
-        croupier = msg.sender;
+        secretSigner = payable(0xda693C5307CD5aBCb1CC395d6a7Eab3d5612989F); // mainnet
+        croupier = secretSigner;
         maxProfit = 1000 * 36; // 默认最大获利金额: 1000*36
     }
 
@@ -225,7 +224,7 @@ contract Dice2Win {
     // Contract may be destroyed only when there are no ongoing bets,
     // either settled or refunded. All funds are transferred to contract owner.
     function kill() external onlyOwner {
-        // 防止项目方卷款跑路, 销毁合约之前, 必须处理完所有未完成的赌注
+        // 防止跑路, 销毁合约之前, 必须处理完所有未完成的赌注
         require(
             lockedInBets == 0,
             "All bets should be processed (settled or refunded) before self-destruct."
